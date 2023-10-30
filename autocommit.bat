@@ -1,11 +1,12 @@
-echo %DATE%
-echo %TIME%
-set datetimef=%date:~-4%_%date:~3,2%_%date:~0,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%
+@echo off
+setlocal enabledelayedexpansion
 
+rem Get the current date and time
+for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value') do set datetime=%%I
+set datetime=!datetime:~0,4!_!datetime:~4,2!_!datetime:~6,2!_!datetime:~8,2!_!datetime:~10,2!_!datetime:~12,2!
 
-set a = Autocommit
-
-set msg=%a% and %datetime%
+set a=Autocommit
+set msg=!a! and !datetime!
 
 echo %msg%
 
@@ -14,3 +15,4 @@ git add *
 git commit -m "%msg%"
 git push
 
+endlocal

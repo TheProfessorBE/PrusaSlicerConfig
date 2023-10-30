@@ -1,4 +1,4 @@
-
+@echo off
 setlocal enabledelayedexpansion
 
 rem Get the current date and time

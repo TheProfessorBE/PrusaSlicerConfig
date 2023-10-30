@@ -1,4 +1,6 @@
 @echo off
+
+cd C:\Users\Jan\AppData\Roaming\PrusaSlicer
 setlocal enabledelayedexpansion
 
 
